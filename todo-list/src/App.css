@@ -8,19 +8,4 @@
   }
 }
 
-/* Header Css */
-header ul{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: white;
 
-}
-header li{
-  display: inline;
-  padding: 8px;
-  float: left;
-  color: white;
-
-}

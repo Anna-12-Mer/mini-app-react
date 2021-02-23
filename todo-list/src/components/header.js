@@ -18,9 +18,6 @@ class Header extends Component{
                             <LinkContainer to='/home'>
                                 <Nav.Link><i className='fas fa-clipboard-list'></i> Home</Nav.Link>
                             </LinkContainer>
-                            <LinkContainer to='/login'>
-                                <Nav.Link><i className='fas fa-user'></i>Sign In</Nav.Link>
-                            </LinkContainer>     
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
