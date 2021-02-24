@@ -5,10 +5,16 @@ import TodoItem from './todoitem';
 
 
 class Homepage extends Component{
+    constructor(props){
+        super(props);
+        this.state={
+            todos : [], 
+        }
+    }
     render(){
         return(
             <div>
-                <TodoItem />
+                <TodoItem  todos={this.todos}/>
             </div>
         )
     }

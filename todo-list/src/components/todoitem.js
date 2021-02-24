@@ -4,14 +4,17 @@ import './../css/todoitem.css';
 import AddItem from './addItem';
 
 class TodoItem extends Component{
-        constructor(props){
+    constructor(props){
         super(props);
-        this.state ={
-            todos : ['Workout', 'Meditation', 'Practicing English']
-        };
+        this.state={
+          todos :[]
+        }   
+    }
+    callbackFunction = (listData) => {
+      this.setState({todos: listData})
     }
     displayItems(){
-        var list  = this.state.todos ;
+        var list  = this.props.todos ;
         if (list){
                 return(
                      <div className='py-5' id='todo-wrapper'>
@@ -31,7 +34,7 @@ class TodoItem extends Component{
                           </div>
                         <div id="todo-list">
                             <p>The busiest people have the most leisure...</p>
-                            <AddItem onAdd={this.onAdd} />
+                            <AddItem parentCallback = {this.callbackFunction}/>
                          </div>
                         </div>
                 )
@@ -39,17 +42,16 @@ class TodoItem extends Component{
             return (
                <div className='py-5' id='todo-wrapper'>
                    No List selected...
+
+                  <div id="todo-list">
+                      <p>The busiest people have the most leisure...</p>
+                      <AddItem parentCallback = {this.callbackFunction}/>
+                   </div>
                </div>
            ) 
         }
     }
-    onAdd(item){
-            var  list  = this.state.todos;
-            list.push(item);
-            this.setState({
-                todos: list
-            })
-    }
+
     render(){
         return(
             <div>

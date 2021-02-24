@@ -6,8 +6,21 @@ class AddItem extends Component{
     constructor(props){
         super(props);
         this.state={
+            todos:[],
             newItem :''
         }
+    }
+    handleSubmit(e){
+        e.preventDefault();
+        var updateList= this.state.todos; 
+        updateList.push(this.state.newItem);
+        console.log(this.state.newItem);
+        this.setState({
+            todos: updateList,
+        });
+    }
+    sendData(){
+        this.props.parentCallback(this.state.todos)
     }
     render(){
         return(
@@ -17,10 +30,7 @@ class AddItem extends Component{
             </form>
         )
     }
-    handleSubmit(e){
-        e.preventDefault();
-        this.props.onAdd(this.state.newItem)
-    }
+
 }
 
 export default AddItem; 
