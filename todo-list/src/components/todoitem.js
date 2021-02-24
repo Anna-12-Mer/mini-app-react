@@ -13,7 +13,7 @@ class TodoItem extends Component{
                             <li key={this.props.index}>
                                     <div className="todo-item">
                                         <span className="item-name">{this.props.item}</span>
-                                        <span className="item-remove" onClick={this.handleDelete}> x </span>
+                                        <span className="item-remove" onClick={this.handleDelete.bind(this)}> x </span>
                                     </div>
                              </li>
                 )
@@ -26,7 +26,7 @@ class TodoItem extends Component{
         }
     }
   handleDelete(){
-        this.props.onDelete(this.props.item);
+        this.props.onDelete();
     }
     render(){
         return(

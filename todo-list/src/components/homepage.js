@@ -16,7 +16,7 @@ class Homepage extends Component{
         console.log(list);
             list= list.map((item, index)=>{
                 return (
-                     <TodoItem  key={index} item={item} onDelete={this.onDelete}/>
+                     <TodoItem  key={index} item={item} onDelete={this.onDelete.bind(this)}/>
                 );
             }); 
             return(
@@ -37,9 +37,9 @@ class Homepage extends Component{
         this.setState({
           todos: updatedTodos
         });
+        console.log(this.state.todos);
     }
     onAdd(item){
-        console.log(this.state);
         var updatedTodos = this.state.todos;
         updatedTodos.push(item);
         this.setState({

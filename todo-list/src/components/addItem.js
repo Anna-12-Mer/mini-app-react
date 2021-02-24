@@ -13,7 +13,7 @@ class AddItem extends Component{
 
     render(){
         return(
-            <form id="add-item" onSubmit={this.handleSubmit}>
+            <form id="add-item" onSubmit={this.handleSubmit.bind(this)}>
                 <input type="text" onChange={(e)=>this.setState({newItem: e.target.value})} required/>
                 <input type="submit" value="Hit me!"/>
             </form>
@@ -21,7 +21,12 @@ class AddItem extends Component{
     }
     handleSubmit(e){
         e.preventDefault();
-        this.props.onAdd(this.state.newItem)
+        this.props.onAdd({
+            variables:{
+                newItem: this.state.newItem
+            }
+        })
+
     }
 
 }
