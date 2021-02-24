@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {motion} from 'framer-motion'
 
 // component
 import TodoItem from './todoitem'; 
@@ -21,9 +22,16 @@ class Homepage extends Component{
             }); 
             return(
              <div id='todo-wrapper'>
-              <div id="todo-list">
+              <div id="todo-list" className='py-3'>
+                  <motion.h2 animate={{fontSize:100, color :"#576dce", x: 10 , y :-10 }}>
+                      To do List 
+                  </motion.h2>
                  <p className='text-center'>The busiest people have the most leisure...</p>
-                 <ul>{list}</ul>
+                 <motion.ul
+                        animate={{scale:1.2}}
+                 >
+                     {list}
+                 </motion.ul>
                  <AddItem onAdd={this.onAdd}/>
               </div>
              </div>  

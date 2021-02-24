@@ -1,4 +1,6 @@
 import React, {Component} from 'react'; 
+import {motion} from 'framer-motion'
+ 
 // css
 import './../css/todoitem.css';
 

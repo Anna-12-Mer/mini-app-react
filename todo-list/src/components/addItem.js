@@ -1,5 +1,5 @@
 import React , {Component} from 'react'; 
-
+import {motion} from 'framer-motion'
 // css
 import './../css/addItem.css';
 
@@ -13,7 +13,7 @@ class AddItem extends Component{
 
     render(){
         return(
-            <form id="add-item" onSubmit={this.handleSubmit.bind(this)}>
+            <form id="add-todo" onSubmit={this.handleSubmit.bind(this)}>
                 <input type="text" onChange={(e)=>this.setState({newItem: e.target.value})} required/>
                 <input type="submit" value="Hit me!"/>
             </form>
