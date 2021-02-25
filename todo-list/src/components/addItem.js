@@ -13,10 +13,16 @@ class AddItem extends Component{
 
     render(){
         return(
+            <motion.div
+                initial={{x:'-100v<'}}
+                animate={{x:0}}
+            >
             <form id="add-todo" onSubmit={this.handleSubmit.bind(this)}>
                 <input type="text" onChange={(e)=>this.setState({newItem: e.target.value})} required/>
                 <input type="submit" value="Hit me!"/>
             </form>
+            </motion.div>
+
         )
     }
     handleSubmit(e){

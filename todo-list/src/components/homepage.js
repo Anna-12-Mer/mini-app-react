@@ -5,6 +5,21 @@ import {motion} from 'framer-motion'
 import TodoItem from './todoitem'; 
 import AddItem from './addItem';
 
+const containerVariants={
+    hiden:{
+        opacity:0,
+        x:'100vw'
+    },
+    visible:{
+        opacity: 1,
+        x:0,
+        transition:{
+            type: 'spring',
+            delay:0.2
+        }
+    }
+}
+
 class Homepage extends Component{
     constructor(props){
         super(props);
@@ -21,20 +36,28 @@ class Homepage extends Component{
                 );
             }); 
             return(
-             <div id='todo-wrapper'>
+             <motion.div id='todo-wrapper'
+                variants={containerVariants}
+                initial="hiden"
+                animate="visible"
+             >
               <div id="todo-list" className='py-3'>
-                  <motion.h2 animate={{fontSize:100, color :"#576dce", x: 10 , y :-10 }}>
+                  <motion.h2 
+                  animate={{fontSize:100, color :"#576dce", x: 10 , y :-10 }}
+                  >
                       To do List 
                   </motion.h2>
                  <p className='text-center'>The busiest people have the most leisure...</p>
                  <motion.ul
-                        animate={{scale:1.2}}
+                        initial={{opacity:0}}
+                        animate={{opacity:1}}
+                        transition={{delay: 0.1}}
                  >
                      {list}
                  </motion.ul>
                  <AddItem onAdd={this.onAdd}/>
               </div>
-             </div>  
+             </motion.div>  
             )
     }
         //Custom functions
