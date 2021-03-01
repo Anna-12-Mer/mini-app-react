@@ -25,13 +25,9 @@ class AddItem extends Component{
 
         )
     }
-    handleSubmit(e){
+    handleSubmit = (e)=>{
         e.preventDefault();
-        this.props.onAdd({
-            variables:{
-                newItem: this.state.newItem
-            }
-        })
+        this.props.onAdd(this.state.newItem)
 
     }
 

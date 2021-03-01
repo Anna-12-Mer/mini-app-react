@@ -24,15 +24,14 @@ class Homepage extends Component{
     constructor(props){
         super(props);
         this.state={
-            todos : ['Homework', 'Sport'], 
+            todos : [], 
         }
     }
     render(){
         var list = this.state.todos; 
-        console.log(list);
             list= list.map((item, index)=>{
                 return (
-                     <TodoItem  key={index} item={item} onDelete={this.onDelete.bind(this)}/>
+                    <TodoItem key={index} item={item} onDelete={this.onDelete}/>
                 );
             }); 
             return(
@@ -61,16 +60,16 @@ class Homepage extends Component{
             )
     }
         //Custom functions
-    onDelete(item){
-        var updatedTodos = this.state.todos.filter((val, index)=>{
+    onDelete =(item) => {
+        var updatedTodos = this.state.todos
+        updatedTodos.filter((val, index)=>{
             return item !== val;
         });
         this.setState({
           todos: updatedTodos
         });
-        console.log(this.state.todos);
     }
-    onAdd(item){
+    onAdd = (item) => {
         var updatedTodos = this.state.todos;
         updatedTodos.push(item);
         this.setState({

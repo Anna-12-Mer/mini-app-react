@@ -27,8 +27,9 @@ class TodoItem extends Component{
            ) 
         }
     }
-  handleDelete(){
-        this.props.onDelete();
+  handleDelete(e){
+      e.preventDefault();
+      this.props.onDelete(this.props.item);
     }
     render(){
         return(
