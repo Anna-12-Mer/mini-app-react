@@ -24,7 +24,7 @@ class Homepage extends Component{
     constructor(props){
         super(props);
         this.state={
-            todos : [], 
+            todos : [] 
         }
     }
     render(){
@@ -61,10 +61,10 @@ class Homepage extends Component{
     }
         //Custom functions
     onDelete =(item) => {
-        var updatedTodos = this.state.todos
-        updatedTodos.filter((val, index)=>{
+        var updatedTodos = this.state.todos.filter((val)=>{
             return item !== val;
         });
+        console.log(updatedTodos);
         this.setState({
           todos: updatedTodos
         });
@@ -72,6 +72,7 @@ class Homepage extends Component{
     onAdd = (item) => {
         var updatedTodos = this.state.todos;
         updatedTodos.push(item);
+        console.log(updatedTodos);
         this.setState({
             todos: updatedTodos
         })
