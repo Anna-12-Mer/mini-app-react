@@ -18,7 +18,7 @@ class AddItem extends Component{
                 animate={{x:0}}
             >
             <form id="add-todo" onSubmit={this.handleSubmit.bind(this)}>
-                <input type="text" onChange={(e)=>this.setState({newItem: e.target.value})} required/>
+                <input type="text" onChange={(e)=>this.setState({newItem: e.target.value})} value={this.state.newItem} required/>
                 <input type="submit" value="Hit me!"/>
             </form>
             </motion.div>
@@ -27,7 +27,10 @@ class AddItem extends Component{
     }
     handleSubmit = (e)=>{
         e.preventDefault();
-        this.props.onAdd(this.state.newItem)
+        this.props.onAdd(this.state.newItem);
+        this.setState({
+            newItem:'',
+        });
 
     }
 
